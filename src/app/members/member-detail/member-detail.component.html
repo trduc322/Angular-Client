@@ -1,0 +1,59 @@
+<div *ngIf="member" class="grid grid-cols-11 gap-10">
+    <div class="border-2 border-teal-100 rounded col-span-3">
+        <div>
+            <img src="{{member.photoUrl || './assets/user.png'}}" alt="{{member.knownAs}}" class="w-full h-full m-auto rounded">
+            <div class="px-5 pt-5">
+                <div class="">
+                    <p class="font-semibold">Location:</p>
+                    <p class="font-extralight">{{member.city}}, {{member.country}}</p>
+                </div>
+                <div class="mt-2">
+                    <p class="font-semibold">Age:</p>
+                    <p class="font-extralight">{{member.age}}</p>
+                </div>
+                <div class="mt-2">
+                    <p class="font-semibold">Last Active:</p>
+                    <p class="font-extralight">{{member.lastActive}}</p>
+                </div>
+                <div class="mt-2">
+                    <p class="font-semibold">Member since:</p>
+                    <p class="font-extralight">{{member.created}}</p>
+                </div>
+            </div>
+            <div class="p-5">
+                <div class="flex justify-center">
+                    <button class="bg-teal-500 px-4 py-1 text-white font-medium rounded mr-2 w-2/5">
+                        Like
+                    </button>
+                    <button class="bg-teal-500 px-4 py-1 text-white font-medium rounded w-3/5">
+                        Message
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-span-7">
+        <mat-tab-group class="overflow-clip">
+            <mat-tab label="About {{member.knownAs}}">
+                <div class="mt-5">
+                    <p class="text-2xl font-semibold">Description</p>
+                    <p class="text-base">{{member.introduction}}</p>
+                    <p class="text-2xl font-semibold">Looking for</p>
+                    <p class="text-base">{{member.lookingFor}}</p>
+                </div>
+            </mat-tab>
+            <mat-tab label="Interests">
+                <div class="mt-5">
+                    <p class="text-2xl font-semibold">Interests</p>
+                    <p class="text-base">{{member.interests}}</p>
+                </div>
+            </mat-tab>
+            <mat-tab label="Photos">
+                <div class="mt-5">
+                    <ngx-gallery [options]="galleryOptions" [images]="galleryImages" style="display: inline-block; margin-bottom: 20px;"></ngx-gallery>
+                </div>
+            </mat-tab>
+            <mat-tab label="Messages"><div class="mt-5">Messages</div></mat-tab>
+        </mat-tab-group>
+    </div>
+</div>

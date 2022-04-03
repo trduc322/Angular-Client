@@ -1,0 +1,17 @@
+<div>
+    <div *ngIf="!registerMode" class="text-center">
+        <p class="text-3xl font-semibold">Find your match</p>
+        <p class="text-xl my-3">Come on in to view your matches... all you need to do is sign up</p>
+        <div class="text-center">
+            <button class="bg-teal-500 text-white px-5 py-2 text-base font-semibold rounded mr-5" (click)="registerToggle()">Register</button>
+            <button class="bg-teal-500 text-white px-5 py-2 text-base font-semibold rounded">Learn more</button>
+        </div>
+    </div>
+    <div *ngIf="registerMode" class="text-center">
+        <div class="grid grid-cols-12 justify-center">
+            <div class="col-start-5 col-span-4">
+                <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+            </div>
+        </div>
+    </div>
+</div>

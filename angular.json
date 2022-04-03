@@ -23,6 +23,9 @@
               "src/assets"
             ],
             "styles": [
+              "src/custom-theme.scss",
+              "./node_modules/ngx-toastr/toastr.css",
+              "node_modules/ngx-spinner/animations/ball-circus.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -62,6 +65,11 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "sslKey": "./ssl/server.key",
+            "sslCert": "./ssl/server.crt",
+            "ssl": false
+          },
           "configurations": {
             "production": {
               "browserTarget": "client:build:production"
